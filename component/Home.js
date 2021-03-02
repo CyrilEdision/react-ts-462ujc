@@ -48,7 +48,7 @@ class Home extends Component {
           }
         );
       } else {
-        alert("Please remove last fruit");
+        alert("Please remove recently added item");
       }
     } else if (e == "Orange" && this.state.countOrange < 10) {
       var last = this.state.cartValue[this.state.cartValue.length - 1];
@@ -65,7 +65,7 @@ class Home extends Component {
           }
         );
       } else {
-        alert("Please remove last fruit");
+        alert("Please remove recently added item");
       }
     } else if (e == "Graphs" && this.state.countGraphs < 10) {
       var last = this.state.cartValue[this.state.cartValue.length - 1];
@@ -82,7 +82,7 @@ class Home extends Component {
           }
         );
       } else {
-        alert("Please remove last fruit");
+        alert("Please remove recently added item");
       }
     }
   };
@@ -122,8 +122,13 @@ class Home extends Component {
   render() {
     return (
       <div className="container">
-        <Link to="/">Login Page</Link>/Home
-        <h2>Choose the Item</h2>
+        <div className="heading">
+          <Link to="/">Login Page</Link>/Home
+          <p className="login-as">Login in as {this.state.checkUser}</p>
+        </div>
+        <div className="heading-div">
+          <h2>Add Item to Cart</h2>
+        </div>
         <div className="row">
           <div className="col-4">
             <div className="box-red">
@@ -140,7 +145,12 @@ class Home extends Component {
               >
                 +
               </button>
-              <button onClick={() => this.addProduct("Apple")}>-</button>
+              <button
+                disabled={this.state.countApple >= 10}
+                onClick={() => this.addProduct("Apple")}
+              >
+                -
+              </button>
             </div>
           </div>
           <div className="col-4">
@@ -158,7 +168,12 @@ class Home extends Component {
               >
                 +
               </button>
-              <button onClick={() => this.addProduct("Orange")}>-</button>
+              <button
+                disabled={this.state.countOrange >= 10}
+                onClick={() => this.addProduct("Orange")}
+              >
+                -
+              </button>
             </div>
           </div>
           <div className="col-4">
@@ -176,7 +191,12 @@ class Home extends Component {
               >
                 +
               </button>
-              <button onClick={() => this.addProduct("Graphs")}>-</button>
+              <button
+                disabled={this.state.countGraphs >= 10}
+                onClick={() => this.addProduct("Graphs")}
+              >
+                -
+              </button>
             </div>
           </div>
         </div>

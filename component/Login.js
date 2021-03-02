@@ -44,9 +44,9 @@ class Login extends Component {
         }
       );
     } else if (this.state.uname == "" || this.state.pwd == "") {
-      alert("Fields Can't be empty");
+      alert("Fields can't be empty");
     } else {
-      alert("Please Enter Correct Credentials");
+      alert("Please Enter Valid Credentials");
     }
     event.preventDefault();
   };
