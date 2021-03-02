@@ -55,7 +55,7 @@ class Login extends Component {
       console.log("User");
     } else {
       console.log("Wrong");
-      this.createNotification("error");
+      this.createNotification('error');
     }
     event.preventDefault();
   };
@@ -68,14 +68,14 @@ class Login extends Component {
             <input
               className="form-control"
               type="text"
-              placeHolder="Username"
+              placeholder="Username"
               value={this.state.uname}
               onChange={e => this.setState({ uname: e.target.value })}
             />
             <input
               type="password"
               className="form-control"
-              placeHolder="Passsword"
+              placeholder="Passsword"
               value={this.state.pwd}
               onChange={e => this.setState({ pwd: e.target.value })}
             />
