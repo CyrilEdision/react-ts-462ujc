@@ -43,6 +43,7 @@ class Login extends Component {
     });
   };
   handleSubmit = () => {
+    this.createNotification("error");
     if (
       this.state.uname == this.state.loginData.user1.name &&
       this.state.pwd == this.state.loginData.user1.password
@@ -55,35 +56,36 @@ class Login extends Component {
       console.log("User");
     } else {
       console.log("Wrong");
-      this.createNotification('error');
     }
     event.preventDefault();
   };
   render() {
     return (
-      <div className="login">
-        <div className="login-inner">
-          <h2>LOGIN</h2>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              className="form-control"
-              type="text"
-              placeholder="Username"
-              value={this.state.uname}
-              onChange={e => this.setState({ uname: e.target.value })}
-            />
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Passsword"
-              value={this.state.pwd}
-              onChange={e => this.setState({ pwd: e.target.value })}
-            />
-            <button>Submit</button>
-          </form>
-          <NotificationContainer />
+      <>
+        <div className="login">
+          <div className="login-inner">
+            <h2>LOGIN</h2>
+            <form onSubmit={this.handleSubmit}>
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Username"
+                value={this.state.uname}
+                onChange={e => this.setState({ uname: e.target.value })}
+              />
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Passsword"
+                value={this.state.pwd}
+                onChange={e => this.setState({ pwd: e.target.value })}
+              />
+              <button>Submit</button>
+            </form>
+          </div>
         </div>
-      </div>
+        <NotificationContainer />
+      </>
     );
   }
 }
