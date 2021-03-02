@@ -23,9 +23,8 @@ class Home extends Component {
           this.setState({
             isAdmin: true
           });
-        }
-        else{
-           this.setState({
+        } else {
+          this.setState({
             isAdmin: false
           });
         }
@@ -36,7 +35,7 @@ class Home extends Component {
     if (e == "Apple" && this.state.countApple < 10) {
       // var last = this.state.cartValue.pop();
       var last = this.state.cartValue[this.state.cartValue.length - 1];
-      console.log(last);
+      // console.log(last);
       if (last == e) {
         var lastDel = this.state.cartValue.pop();
         this.setState(
@@ -45,15 +44,15 @@ class Home extends Component {
             cartValue: this.state.cartValue
           },
           () => {
-            console.log(this.state.cartValue);
+            // console.log(this.state.cartValue);
           }
         );
       } else {
-        console.log("Please remove last fruit");
+        alert("Please remove last fruit");
       }
     } else if (e == "Orange" && this.state.countOrange < 10) {
       var last = this.state.cartValue[this.state.cartValue.length - 1];
-      console.log(last);
+      // console.log(last);
       if (last == e) {
         var lastDel = this.state.cartValue.pop();
         this.setState(
@@ -62,15 +61,15 @@ class Home extends Component {
             cartValue: this.state.cartValue
           },
           () => {
-            console.log(this.state.cartValue);
+            // console.log(this.state.cartValue);
           }
         );
       } else {
-        console.log("Please remove last fruit");
+        alert("Please remove last fruit");
       }
     } else if (e == "Graphs" && this.state.countGraphs < 10) {
       var last = this.state.cartValue[this.state.cartValue.length - 1];
-      console.log(last);
+      // console.log(last);
       if (last == e) {
         var lastDel = this.state.cartValue.pop();
         this.setState(
@@ -79,11 +78,11 @@ class Home extends Component {
             cartValue: this.state.cartValue
           },
           () => {
-            console.log(this.state.cartValue);
+            // console.log(this.state.cartValue);
           }
         );
       } else {
-        console.log("Please remove last fruit");
+        alert("Please remove last fruit");
       }
     }
   };
@@ -132,7 +131,15 @@ class Home extends Component {
               <h3>
                 Quanitity: <span>{this.state.countApple}</span>
               </h3>
-              <button onClick={() => this.removeProduct("Apple")}>+</button>
+              <button
+                onClick={() =>
+                  this.state.isAdmin
+                    ? this.removeProduct("Apple")
+                    : alert("Permission Denied")
+                }
+              >
+                +
+              </button>
               <button onClick={() => this.addProduct("Apple")}>-</button>
             </div>
           </div>
@@ -142,7 +149,15 @@ class Home extends Component {
               <h3>
                 Quanitity: <span>{this.state.countOrange}</span>
               </h3>
-              <button onClick={() => this.removeProduct("Orange")}>+</button>
+              <button
+                onClick={() =>
+                  this.state.isAdmin
+                    ? this.removeProduct("Orange")
+                    : alert("Permission Denied")
+                }
+              >
+                +
+              </button>
               <button onClick={() => this.addProduct("Orange")}>-</button>
             </div>
           </div>
@@ -152,7 +167,15 @@ class Home extends Component {
               <h3>
                 Quanitity: <span>{this.state.countGraphs}</span>
               </h3>
-              <button onClick={() => this.removeProduct("Graphs")}>+</button>
+              <button
+                onClick={() =>
+                  this.state.isAdmin
+                    ? this.removeProduct("Graphs")
+                    : alert("Permission Denied")
+                }
+              >
+                +
+              </button>
               <button onClick={() => this.addProduct("Graphs")}>-</button>
             </div>
           </div>
