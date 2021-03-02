@@ -29,3 +29,60 @@ h2 {
   text-align: center;
   margin-bottom: 1rem;
 }
+.box-red {
+  text-align: center;
+  background: #f7404a;
+  padding: 5rem 2rem;
+  color: #fff;
+  box-shadow: 1px 1px 10px #c7c7c7;
+}
+.box-red h3 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+.box-red h3 span {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+.box-red button {
+  background: #007bff;
+  border: none;
+  color: #fff;
+  margin: 0px 5px;
+  padding: 3px 10px;
+  text-align: center;
+  min-width: 35px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px #8d8d8d;
+  font-size: 1.2rem;
+  font-weight: bold;
+  min-height: 35px;
+}
+.box-orange {
+  background: #ffae3e;
+}
+.box-green {
+  background: #50b279;
+}
+.box-cart {
+  border: 1px solid #666;
+  min-height: 300px;
+}
+.box-cart-top {
+  margin-top: 2rem;
+}
+.box-cart p {
+  margin-bottom: 0;
+  padding: 5px;
+  color: #fff;
+}
+.box-cart p.Apple {
+  background: #f7404a;
+}
+.box-cart p.Orange {
+  background: #ffae3e;
+}
+.box-cart p.Graphs {
+  background: #50b279;
+}

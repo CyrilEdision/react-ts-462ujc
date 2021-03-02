@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-
+import { Redirect } from "react-router";
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       uname: "",
       pwd: "",
-      loginData: {}
+      loginData: {},
+      toHome: false,
+      user: ""
     };
   }
   componentDidMount = () => {
@@ -19,18 +21,45 @@ class Login extends Component {
       this.state.uname == this.state.loginData.user1.name &&
       this.state.pwd == this.state.loginData.user1.password
     ) {
-      console.log("Admin");
+      this.setState(
+        {
+          toHome: true,
+          user: "Admin"
+        },
+        () => {
+          localStorage.setItem("user", JSON.stringify(this.state.user));
+        }
+      );
     } else if (
       this.state.uname == this.state.loginData.user2.name &&
       this.state.pwd == this.state.loginData.user2.password
     ) {
-      console.log("User");
+      this.setState(
+        {
+          toHome: true,
+          user: "cyril"
+        },
+        () => {
+          localStorage.setItem("user", JSON.stringify(this.state.user));
+        }
+      );
+    } else if (this.state.uname == "" || this.state.pwd == "") {
+      alert("Fields Can't be empty");
     } else {
-      console.log("Wrong");
+      alert("Please Enter Correct Credentials");
     }
     event.preventDefault();
   };
   render() {
+    if (this.state.toHome === true) {
+      return (
+        <Redirect
+          to={{
+            pathname: "/home"
+          }}
+        />
+      );
+    }
     return (
       <>
         <div className="login">

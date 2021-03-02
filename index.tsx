@@ -3,7 +3,8 @@ import { render } from "react-dom";
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./component/Login";
-
+import Home from "./component/Home";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +26,18 @@ class App extends Component {
   }
 
   render() {
-    return <Login />;
+    return (
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Login />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    );
   }
 }
 
