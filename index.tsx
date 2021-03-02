@@ -1,31 +1,32 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
-import './style.css';
+import React, { Component } from "react";
+import { render } from "react-dom";
+import "./style.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Login from "./component/Login";
 
-interface AppProps { }
-interface AppState {
-  name: string;
-}
-
-class App extends Component<AppProps, AppState> {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'React'
+      authData: {
+        user1: {
+          name: "Admin",
+          permission: "all",
+          password: "Admin"
+        },
+        user2: {
+          name: "cyril",
+          permission: "All",
+          password: "cyril"
+        }
+      }
     };
+    localStorage.setItem("authData", JSON.stringify(this.state.authData));
   }
 
   render() {
-    return (
-      <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
-      </div>
-    );
+    return <Login />;
   }
 }
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById("root"));
